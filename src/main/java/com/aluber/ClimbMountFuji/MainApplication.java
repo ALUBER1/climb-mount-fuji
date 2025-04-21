@@ -5,8 +5,7 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.entity.Entity;
 import javafx.scene.Cursor;
 
-import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameScene;
-import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 
 public class MainApplication extends GameApplication {
 
@@ -29,7 +28,7 @@ public class MainApplication extends GameApplication {
     @Override
     protected void initGame() {
         getGameWorld().addEntityFactory(new Factory());
-        player = new Entity();
+        player = getGameWorld().spawn("player", getAppWidth(),getAppHeight());
         player.addComponent(new PlayerComponent());
     }
 }

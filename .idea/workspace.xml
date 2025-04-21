@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ddec76-b2b6-4f5a-b7e9-28837afa9394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-18-apr-2025-13.27.18.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/FXGL-18-apr-2025-13.27.18.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/FXGL-18-apr-2025-13.43.02.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/FXGL-18-apr-2025-13.43.02.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
