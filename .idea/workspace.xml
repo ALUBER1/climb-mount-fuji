@@ -46,6 +46,7 @@
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
       <module name="fxgl-demo" />
+      <option name="VM_PARAMETERS" value="-Xmx10g -Xms6g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

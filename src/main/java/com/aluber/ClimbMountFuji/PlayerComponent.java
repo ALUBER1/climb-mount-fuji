@@ -2,8 +2,11 @@ package com.aluber.ClimbMountFuji;
 
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.physics.PhysicsComponent;
 
 public class PlayerComponent extends Component {
+
+    PhysicsComponent physics;
 
     private double speedX = 0;
     private double speedY = 0;
@@ -17,9 +20,13 @@ public class PlayerComponent extends Component {
         generateArmsAndHammer();
     }
 
+    public void moveRight() {
+        physics.setVelocityX(200);
+    }
+
     @Override
     public void onUpdate(double tpf) {
-        //TODO
+        System.out.println("time: " + tpf + ", " + getEntity().getY());
     }
 
     private void generateArmsAndHammer() {
