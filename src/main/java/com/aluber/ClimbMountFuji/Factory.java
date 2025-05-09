@@ -20,4 +20,16 @@ public class Factory implements EntityFactory {
                 .with(physics)
                 .build();
     }
+
+    @Spawns("platform")
+    public Entity newPlatform(SpawnData data) {
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityTypes.PLATFORM)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .with(physics)
+                .build();
+    }
 }
