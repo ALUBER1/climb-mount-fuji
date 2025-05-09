@@ -9,7 +9,6 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
 
@@ -42,13 +41,7 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initPhysics() {
-        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.PLATFORM) {
 
-            @Override
-            protected void onCollisionBegin(Entity player, Entity platform) {
-                System.out.println("collision");
-            }
-        });
     }
 
     @Override
@@ -62,7 +55,7 @@ public class MainApplication extends GameApplication {
         FXGL.setLevelFromMap("level/Project.tmx");
         Viewport view = FXGL.getGameScene().getViewport();
         player = spawn("player", 1750,18800);
-        view.bindToEntity(player, 275, 226);
+        view.bindToEntity(player, (getAppWidth()/2) - (player.getWidth()/2), (getAppHeight()/2) - (player.getHeight()/2));
     }
 
     @Override

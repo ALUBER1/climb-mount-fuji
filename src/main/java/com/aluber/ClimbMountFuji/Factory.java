@@ -40,6 +40,34 @@ public class Factory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("arm")
+    public Entity newArm(SpawnData data) {
+        PhysicsComponent physicsComponent = new PhysicsComponent();
+        physicsComponent.setBodyType(BodyType.DYNAMIC);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityType.ARMS)
+                .view("arm.png")
+                .bbox(new HitBox(BoundingShape.box(38, 17)))
+                .collidable()
+                .with(physicsComponent)
+                .build();
+    }
+
+    @Spawns("hand")
+    public Entity newHand(SpawnData data) {
+        PhysicsComponent physicsComponent = new PhysicsComponent();
+        physicsComponent.setBodyType(BodyType.DYNAMIC);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityType.ARMS)
+                .view("hand.png")
+                .bbox(new HitBox(BoundingShape.box(38, 17)))
+                .collidable()
+                .with(physicsComponent)
+                .build();
+    }
+
     @Spawns("platform")
     public Entity newPlatform(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent();
