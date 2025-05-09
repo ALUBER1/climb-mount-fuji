@@ -31,6 +31,27 @@ public class MainApplication extends GameApplication {
     }
 
     @Override
+    public void initInput() {
+        FXGL.getInput().addAction(new UserAction("move right") {
+            @Override
+            protected void onAction() {
+                player.getComponent(PlayerComponent.class).moveRight();
+            }
+        }, KeyCode.K);
+    }
+
+    @Override
+    protected void initPhysics() {
+        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityType.PLAYER, EntityType.PLATFORM) {
+
+            @Override
+            protected void onCollisionBegin(Entity player, Entity platform) {
+                System.out.println("collision");
+            }
+        });
+    }
+
+    @Override
     protected void initUI() {
         FXGL.getGameScene().setCursor(Cursor.DEFAULT);
     }
