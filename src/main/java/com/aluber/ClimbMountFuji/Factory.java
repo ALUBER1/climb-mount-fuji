@@ -33,6 +33,20 @@ public class Factory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("checkpoint")
+    public Entity newCheckpoint(SpawnData data){
+
+        return FXGL.entityBuilder(data).type(EntityTypes.CHECKPOINT)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .with(new CheckpointComponent())
+                .build();
+    }
+
+
+
+
+
+
     @Spawns("platform")
     public Entity newPlatform(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent();
