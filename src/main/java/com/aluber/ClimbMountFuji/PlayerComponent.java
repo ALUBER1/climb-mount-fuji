@@ -52,10 +52,12 @@ public class PlayerComponent extends Component {
         double dist = Math.sqrt(dx * dx + dy * dy);
 
         double phi = Math.atan2(-dy, dx);
-        double theta = Math.acos((rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/2*rightHand.getWidth()*rightHand.getWidth());
+        double cosTheta = (rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/2*rightHand.getWidth()*rightHand.getWidth();
+        cosTheta = Math.max(-1, Math.min(1, cosTheta));
+        Double theta = Math.acos(cosTheta);
 
         rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (phi - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()));
-        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (theta - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
+        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (((theta.isNaN())?0:theta) - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
         //rightHand.getComponent(PhysicsComponent.class).getBody().setTransform(rightHand.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) phi);
         //rightArm.getComponent(PhysicsComponent.class).getBody().setTransform(rightArm.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) theta);
 
