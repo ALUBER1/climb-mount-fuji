@@ -39,28 +39,21 @@ public class PlayerComponent extends Component {
     @Override
     public void onUpdate(double tpf) {
 
-        PhysicsComponent physicsComponent = rightArm.getComponent(PhysicsComponent.class);
-
         Point2D pos = FXGL.getInput().getMousePositionWorld();
-//        double dist = Math.sqrt(Math.pow(pos.getX() - rightHand.getX(),2) + Math.pow(pos.getY() - rightHand.getY(),2));
-//
-//        double alpha = Math.acos(rightHand.getWidth() / dist);
-//
-//        double angle = alpha - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle();
-        double dx = pos.getX() - rightHand.getX();
-        double dy = pos.getY() - rightHand.getY();
+        double dx = pos.getX() - rightArm.getX();
+        double dy = pos.getY() - rightArm.getY();
         double dist = Math.sqrt(dx * dx + dy * dy);
 
-        double phi = Math.atan2(-dy, dx);
-        double cosTheta = (rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/2*rightHand.getWidth()*rightHand.getWidth();
+        double phi = Math.atan2(dy, dx);
+        double cosTheta = (rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/(2*rightHand.getWidth()*rightHand.getWidth());
         cosTheta = Math.max(-1, Math.min(1, cosTheta));
-        Double theta = Math.acos(cosTheta);
+        double theta = Math.acos(cosTheta);
 
-        rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (phi - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()));
-        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (((theta.isNaN())?0:theta) - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
-        //rightHand.getComponent(PhysicsComponent.class).getBody().setTransform(rightHand.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) phi);
-        //rightArm.getComponent(PhysicsComponent.class).getBody().setTransform(rightArm.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) theta);
+        double alpha1 = phi + theta;
+        double alpha2 = phi - theta;
 
+        rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (alpha2 - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()));
+        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (alpha1 - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
     }
 
     private void generateArmsAndHammer() {
