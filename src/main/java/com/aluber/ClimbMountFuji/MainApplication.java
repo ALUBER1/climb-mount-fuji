@@ -6,6 +6,7 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
+import com.sun.media.jfxmedia.events.PlayerStateEvent;
 import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 
@@ -30,6 +31,13 @@ public class MainApplication extends GameApplication {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    protected void initPhysics() {
+        getPhysicsWorld().addCollisionHandler(new CheckpointHandler() );
+
+
     }
 
     @Override
