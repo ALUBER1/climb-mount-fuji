@@ -42,8 +42,22 @@ public class PlayerComponent extends Component {
         PhysicsComponent physicsComponent = rightArm.getComponent(PhysicsComponent.class);
 
         Point2D pos = FXGL.getInput().getMousePositionWorld();
+//        double dist = Math.sqrt(Math.pow(pos.getX() - rightHand.getX(),2) + Math.pow(pos.getY() - rightHand.getY(),2));
+//
+//        double alpha = Math.acos(rightHand.getWidth() / dist);
+//
+//        double angle = alpha - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle();
+        double dx = pos.getX() - rightHand.getX();
+        double dy = pos.getY() - rightHand.getY();
+        double dist = Math.sqrt(dx * dx + dy * dy);
 
+        double phi = Math.atan2(-dy, dx);
+        double theta = Math.acos((rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/2*rightHand.getWidth()*rightHand.getWidth());
 
+        rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (phi - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()));
+        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (theta - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
+        //rightHand.getComponent(PhysicsComponent.class).getBody().setTransform(rightHand.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) phi);
+        //rightArm.getComponent(PhysicsComponent.class).getBody().setTransform(rightArm.getComponent(PhysicsComponent.class).getBody().getPosition(), (float) theta);
 
     }
 
@@ -74,6 +88,13 @@ public class PlayerComponent extends Component {
                 new Point2D(0, leftArm.getBoundingBoxComponent().getHeight()/2)
         );
 
+        rightHand = spawn("hand", player.getX(), player.getY());
+        FXGL.getPhysicsWorld().addRevoluteJoint(
+                rightArm,
+                rightHand,
+                new Point2D(rightArm.getBoundingBoxComponent().getWidth(), rightArm.getBoundingBoxComponent().getHeight()/2),
+                new Point2D(0, rightArm.getBoundingBoxComponent().getHeight()/2)
+        );
     }
 
     public void addCollectibleCounter(){

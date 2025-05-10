@@ -41,12 +41,12 @@
     "git-widget-placeholder": "feature/ISSUE-4",
     "kotlin-language-version-configured": "true"
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
       <module name="fxgl-demo" />
-      <option name="VM_PARAMETERS" value="-Xmx10g -Xms6g" />
+      <option name="VM_PARAMETERS" value="-Xmx16g -Xms8g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

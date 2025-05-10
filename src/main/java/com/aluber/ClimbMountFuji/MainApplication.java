@@ -23,6 +23,7 @@ public class MainApplication extends GameApplication {
         gameSettings.setTitle("CLIMB MOUNT FUJI");
         gameSettings.setDeveloperMenuEnabled(true);
         gameSettings.setApplicationMode(ApplicationMode.DEVELOPER);
+        gameSettings.setTicksPerSecond(10);
     }
 
     public static void main(String[] args) {
