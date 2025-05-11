@@ -7,9 +7,6 @@
 
 
 
-##  our pause menu
-
-![Screenshot del gioco](.\src\main\resources\assets\levels\pauseMenu\pauseMenu.png)
 
 
 ## 📑 Table of Contents
@@ -24,11 +21,10 @@
 
 ## Features 
 
-- Smooth and responsive gameplay
+
 - Pixel art-style graphics
-- Progressively challenging levels
+- Progressively challenging 
 - Save system
-- Compatible with keyboard and mouse
 - Collectible items
 
 
@@ -50,12 +46,12 @@ The game revolves around using the mouse to move a hammer, with which you can mo
 ## Requirements
 
 - Operating System: Windows / macOS / Linux
-- RAM: minimo 10GB
+- RAM:minimun 10GB
 
 
-### Start
+## Start
 
-1. Scarica o clona questo repository:
+1. Download the precompiled binary in the release tab onn GitHub:
    ```bash
    https://github.com/ALUBER1/climb-mount-fuji
 
