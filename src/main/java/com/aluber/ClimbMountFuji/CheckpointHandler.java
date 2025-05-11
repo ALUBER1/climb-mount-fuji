@@ -10,7 +10,7 @@ import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 public class CheckpointHandler extends CollisionHandler {
 
     private BufferedWriter writer;
-        private static String filename = "./../../../resources/Saves/Save.txt";
+        private static String filename = "./Save.txt";
 
         public CheckpointHandler() {
             super(EntityTypes.PLAYER, EntityTypes.CHECKPOINT);
