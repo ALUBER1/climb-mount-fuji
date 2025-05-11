@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/EntityType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" afterDir="false" />
-    </list>
+    <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
