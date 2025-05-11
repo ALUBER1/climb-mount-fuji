@@ -3,16 +3,14 @@ package com.aluber.ClimbMountFuji;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 public class CheckpointHandler extends CollisionHandler {
 
     private BufferedWriter writer;
-        private String filename = " testo";
+        private static String filename = "./../../../resources/Saves/Save.txt";
 
         public CheckpointHandler() {
             super(EntityTypes.PLAYER, EntityTypes.CHECKPOINT);
@@ -21,14 +19,29 @@ public class CheckpointHandler extends CollisionHandler {
         @Override
         protected void onCollisionBegin(Entity player, Entity checkpoint) {
             try {
-                writer = new BufferedWriter(new FileWriter(filename));
+                ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(filename));
+                stream.writeObject(player);
+                stream.close();
+
             }catch (IOException e){
 
             }
-            //writer.write(checkpoint.getx);
-            //writer.write(checkpoint.gety);
 
         }
+
+    protected static Entity onRestart(){
+            Entity a=null;
+        try {
+            ObjectInputStream stream = new ObjectInputStream(new FileInputStream(filename));
+            a =(Entity) stream.readObject();
+            stream.close();
+
+        }catch (IOException | ClassNotFoundException e){
+
+        }
+            return a;
+    }
+
 
         @Override
         protected void onCollisionEnd(Entity player, Entity btn) {

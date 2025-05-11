@@ -6,7 +6,6 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
-import com.sun.media.jfxmedia.events.PlayerStateEvent;
 import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 
@@ -33,12 +32,7 @@ public class MainApplication extends GameApplication {
         launch(args);
     }
 
-    @Override
-    protected void initPhysics() {
-        getPhysicsWorld().addCollisionHandler(new CheckpointHandler() );
 
-
-    }
 
     @Override
     protected void initUI() {
@@ -50,7 +44,13 @@ public class MainApplication extends GameApplication {
         FXGL.getGameWorld().addEntityFactory(new Factory());
         FXGL.setLevelFromMap("level/Project.tmx");
         Viewport view = FXGL.getGameScene().getViewport();
-        player = spawn("player", 1750,18800);
+        double x=1750,y=18800;
+        Entity oldPlayer= CheckpointHandler.onRestart();
+        if(oldPlayer != null){
+            x = oldPlayer.getX();
+            y= oldPlayer.getY();
+        }
+        player = spawn("player", x,y);
         view.bindToEntity(player, (getAppWidth()/2) - (player.getWidth()/2), (getAppHeight()/2) - (player.getHeight()/2));
         FXGL.getGameScene().getViewport().setLazy(true);
 
@@ -65,6 +65,7 @@ public class MainApplication extends GameApplication {
                 collectible.getComponent(CollectibleComponent.class).collect(player);
             }
         });
+        FXGL.getPhysicsWorld().addCollisionHandler(new CheckpointHandler());
 
     }
 }

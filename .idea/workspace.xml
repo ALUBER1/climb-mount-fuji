@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="" />
+    <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Saves/Save.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/CheckpointComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/CheckpointHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/CheckpointHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/LetturaScrittura.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +24,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Unnamed.executor": "Run",
-    "git-widget-placeholder": "feature/ISSUE-5"
+    "git-widget-placeholder": "feature/ISSUE-10"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
       <module name="fxgl-demo" />
-      <option name="PROGRAM_PARAMETERS" value="-Xmx12g -Xms8g" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmx20g -Xms10g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
