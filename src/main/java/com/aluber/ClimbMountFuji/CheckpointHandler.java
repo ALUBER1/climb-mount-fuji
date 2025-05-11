@@ -25,9 +25,9 @@ public class CheckpointHandler extends CollisionHandler {
             }catch (IOException e){
 
             }
-            writer.write(checkpoint.getx);
-            writer.write(checkpoint.gety);
-            
+            //writer.write(checkpoint.getx);
+            //writer.write(checkpoint.gety);
+
         }
 
         @Override
