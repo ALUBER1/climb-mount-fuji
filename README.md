@@ -61,6 +61,12 @@ The game revolves around using the mouse to move a hammer, with which you can mo
 
 ### Credits
 
+- Barsotti Fabio
+- Filizola Federico
+- Martinelli Giovanni
+- Pattarone Alessio
+
+
 
 
 
