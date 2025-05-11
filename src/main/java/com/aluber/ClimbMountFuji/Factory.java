@@ -16,12 +16,19 @@ public class Factory implements EntityFactory {
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent();
+
         physics.setBodyType(BodyType.DYNAMIC);
+
+        FixtureDef def = new FixtureDef();
+        def.getFilter().categoryBits = 0x0004;
+        def.getFilter().maskBits = 0x0002;
+        //def.setDensity(2f);
+
+        physics.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
                 .type(EntityType.PLAYER)
                 .viewWithBBox("player.png")
-                .collidable()
                 .with(physics)
                 .with(new PlayerComponent())
                 .build();
@@ -31,6 +38,13 @@ public class Factory implements EntityFactory {
     public Entity newPlatform(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.STATIC);
+
+        FixtureDef def = new FixtureDef();
+        def.getFilter().categoryBits = 0x0002;
+        def.getFilter().maskBits = 0xFFFF;
+        def.setFriction(1.0f);
+
+        physics.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
                 .type(EntityType.PLATFORM)
@@ -45,11 +59,16 @@ public class Factory implements EntityFactory {
         PhysicsComponent physicsComponent = new PhysicsComponent();
         physicsComponent.setBodyType(BodyType.DYNAMIC);
 
+        FixtureDef def = new FixtureDef();
+        def.getFilter().groupIndex = -1;
+        //def.setDensity(50f);
+
+        physicsComponent.setFixtureDef(def);
+
         return FXGL.entityBuilder(data)
                 .type(EntityType.ARMS)
                 .view("arm.png")
                 .bbox(new HitBox(BoundingShape.box(38, 17)))
-                .collidable()
                 .with(physicsComponent)
                 .build();
     }
@@ -59,11 +78,35 @@ public class Factory implements EntityFactory {
         PhysicsComponent physicsComponent = new PhysicsComponent();
         physicsComponent.setBodyType(BodyType.DYNAMIC);
 
+        FixtureDef def = new FixtureDef();
+        def.getFilter().groupIndex = -1;
+        //def.setDensity(50f);
+
+        physicsComponent.setFixtureDef(def);
+
         return FXGL.entityBuilder(data)
                 .type(EntityType.ARMS)
                 .view("hand.png")
                 .bbox(new HitBox(BoundingShape.box(38, 17)))
-                .collidable()
+                .with(physicsComponent)
+                .build();
+    }
+
+    @Spawns("hammer")
+    public Entity newHammer(SpawnData data) {
+        PhysicsComponent physicsComponent = new PhysicsComponent();
+        physicsComponent.setBodyType(BodyType.DYNAMIC);
+
+        FixtureDef def = new FixtureDef();
+        def.getFilter().groupIndex = -1;
+        def.setFriction(1.0f);
+
+        physicsComponent.setFixtureDef(def);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityType.HAMMER)
+                .view("hammer.png")
+                .bbox(new HitBox(BoundingShape.box(30, 120)))
                 .with(physicsComponent)
                 .build();
     }

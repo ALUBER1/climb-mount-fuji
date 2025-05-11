@@ -5,8 +5,6 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.physics.box2d.dynamics.joints.RevoluteJoint;
-import com.almasb.fxgl.physics.box2d.dynamics.joints.RevoluteJointDef;
 import javafx.geometry.Point2D;
 import javafx.util.Duration;
 
@@ -15,6 +13,8 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class PlayerComponent extends Component {
 
     PhysicsComponent physics;
+
+    private Entity player;
 
     private double speedX = 0;
     private double speedY = 0;
@@ -32,32 +32,57 @@ public class PlayerComponent extends Component {
         FXGL.runOnce(this::generateArmsAndHammer, Duration.millis(0.0));
     }
 
-    public void moveRight() {
-        physics.setVelocityX(200);
-    }
-
     @Override
     public void onUpdate(double tpf) {
 
+        double ratio = 10;
+        double max = 10;
+
         Point2D pos = FXGL.getInput().getMousePositionWorld();
-        double dx = pos.getX() - rightArm.getX();
-        double dy = pos.getY() - rightArm.getY();
+        double dx = pos.getX() - leftArm.getX();
+        double dy = pos.getY() - leftArm.getY();
         double dist = Math.sqrt(dx * dx + dy * dy);
 
-        double phi = Math.atan2(dy, dx);
-        double cosTheta = (rightHand.getWidth() * rightHand.getWidth() + rightHand.getWidth() * rightHand.getWidth() - dist * dist)/(2*rightHand.getWidth()*rightHand.getWidth());
-        cosTheta = Math.max(-1, Math.min(1, cosTheta));
-        double theta = Math.acos(cosTheta);
+        double phi = Math.atan2(-dy,dx);
+
+        double preTheta = Math.max(-1, Math.min(1, (dist/2)/leftArm.getBoundingBoxComponent().getWidth()));
+
+        double theta = Math.acos(preTheta);
 
         double alpha1 = phi + theta;
         double alpha2 = phi - theta;
 
-        rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (alpha2 - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()));
-        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) (alpha1 - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()));
+        double dx2 = pos.getX() - rightArm.getX();
+        double dy2 = pos.getY() - rightArm.getY();
+        double dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+
+        double phi2 = Math.atan2(-dy2,dx2);
+
+        double preTheta2 = Math.max(-1, Math.min(1, (dist2/2)/rightArm.getBoundingBoxComponent().getWidth()));
+
+        double theta2 = Math.acos(preTheta2);
+
+        double alpha1right = phi2 - theta2;
+        double alpha2right = phi2 + theta2;
+
+        double leftASpeed = (alpha2 - leftArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double leftHSpeed = (alpha1 - leftHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double rightASpeed = (alpha2right - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double rightHSpeed = (alpha1right - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double hammerSpeed = ((phi2 - (Math.PI/2)) - hammer.getComponent(PhysicsComponent.class).getBody().getAngle())*ratio;
+
+        System.out.println(leftASpeed + ", " + leftHSpeed + ", " + rightASpeed + ", " + rightHSpeed + ", " + hammerSpeed);
+
+        leftArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) leftASpeed);
+        leftHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) leftHSpeed);
+        rightArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) rightASpeed);
+        rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) rightHSpeed);
+
+        hammer.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float)hammerSpeed);
     }
 
     private void generateArmsAndHammer() {
-        Entity player = getGameWorld().getSingleton(EntityType.PLAYER);
+        player = getGameWorld().getSingleton(EntityType.PLAYER);
 
         leftArm = spawn("arm",player.getX(), player.getY());
         FXGL.getPhysicsWorld().addRevoluteJoint(
@@ -90,6 +115,24 @@ public class PlayerComponent extends Component {
                 new Point2D(rightArm.getBoundingBoxComponent().getWidth(), rightArm.getBoundingBoxComponent().getHeight()/2),
                 new Point2D(0, rightArm.getBoundingBoxComponent().getHeight()/2)
         );
+
+        hammer = spawn("hammer", player.getX(), player.getY());
+        FXGL.getPhysicsWorld().addRevoluteJoint(
+                hammer,
+                leftHand,
+                new Point2D(hammer.getBoundingBoxComponent().getWidth()/2, hammer.getBoundingBoxComponent().getHeight()),
+                new Point2D(leftHand.getBoundingBoxComponent().getWidth(), leftHand.getBoundingBoxComponent().getHeight()/2)
+        );
+
+        FXGL.getPhysicsWorld().addRevoluteJoint(
+                hammer,
+                rightHand,
+                new Point2D(hammer.getBoundingBoxComponent().getWidth()/2, hammer.getBoundingBoxComponent().getHeight()),
+                new Point2D(rightHand.getBoundingBoxComponent().getWidth(), rightHand.getBoundingBoxComponent().getHeight()/2)
+        );
+
+
+        physics.getBody().setFixedRotation(true);
     }
 
     public void addCollectibleCounter(){

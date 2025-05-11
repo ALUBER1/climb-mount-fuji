@@ -10,7 +10,6 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.input.UserAction;
 import javafx.scene.Cursor;
-import javafx.scene.input.KeyCode;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -21,28 +20,21 @@ public class MainApplication extends GameApplication {
     @Override
     protected void initSettings(GameSettings gameSettings) {
         gameSettings.setTitle("CLIMB MOUNT FUJI");
+        gameSettings.setApplicationMode(ApplicationMode.DEBUG);
         gameSettings.setDeveloperMenuEnabled(true);
-        gameSettings.setApplicationMode(ApplicationMode.DEVELOPER);
-        gameSettings.setTicksPerSecond(10);
-    }
+        gameSettings.setTicksPerSecond(60);
+        gameSettings.setExperimentalTiledLargeMap(true);
+        gameSettings.setIntroEnabled(false);
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void initInput() {
-        FXGL.getInput().addAction(new UserAction("move right") {
-            @Override
-            protected void onAction() {
-                player.getComponent(PlayerComponent.class).moveRight();
-            }
-        }, KeyCode.K);
     }
 
     @Override
     protected void initPhysics() {
+        FXGL.getPhysicsWorld().setGravity(0,3000);
+    }
 
+    public static void main(String[] args) {
+        launch(args);
     }
 
     @Override
@@ -57,6 +49,8 @@ public class MainApplication extends GameApplication {
         Viewport view = FXGL.getGameScene().getViewport();
         player = spawn("player", 1750,18800);
         view.bindToEntity(player, (getAppWidth()/2) - (player.getWidth()/2), (getAppHeight()/2) - (player.getHeight()/2));
+        FXGL.getGameScene().getViewport().setLazy(true);
+
     }
 
     @Override
