@@ -25,6 +25,8 @@ public class MainApplication extends GameApplication {
         gameSettings.setTicksPerSecond(60);
         gameSettings.setExperimentalTiledLargeMap(true);
         gameSettings.setIntroEnabled(false);
+        gameSettings.setFullScreenAllowed(true);
+        gameSettings.setFullScreenFromStart(true);
 
     }
 

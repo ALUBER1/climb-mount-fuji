@@ -1,6 +1,5 @@
 package com.aluber.ClimbMountFuji;
 
-import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
@@ -65,13 +64,11 @@ public class PlayerComponent extends Component {
         double alpha1right = phi2 - theta2;
         double alpha2right = phi2 + theta2;
 
-        double leftASpeed = (alpha2 - leftArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
-        double leftHSpeed = (alpha1 - leftHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
-        double rightASpeed = (alpha2right - rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
-        double rightHSpeed = (alpha1right - rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
-        double hammerSpeed = ((phi2 - (Math.PI/2)) - hammer.getComponent(PhysicsComponent.class).getBody().getAngle())*ratio;
-
-        System.out.println(leftASpeed + ", " + leftHSpeed + ", " + rightASpeed + ", " + rightHSpeed + ", " + hammerSpeed);
+        double leftASpeed = shortestAngle((float) alpha2, leftArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double leftHSpeed = shortestAngle((float) alpha1, leftHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double rightASpeed = shortestAngle((float) alpha2right, rightArm.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double rightHSpeed = shortestAngle((float) alpha1right, rightHand.getComponent(PhysicsComponent.class).getBody().getAngle()) * ratio;
+        double hammerSpeed = shortestAngle((float) (phi2 - (Math.PI/2)), hammer.getComponent(PhysicsComponent.class).getBody().getAngle())*ratio;
 
         leftArm.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) leftASpeed);
         leftHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) leftHSpeed);
@@ -79,6 +76,13 @@ public class PlayerComponent extends Component {
         rightHand.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float) rightHSpeed);
 
         hammer.getComponent(PhysicsComponent.class).getBody().setAngularVelocity((float)hammerSpeed);
+    }
+
+    private float shortestAngle(float target, float current) {
+        float diff = target - current;
+        while (diff > Math.PI) diff -= (float)(2 * Math.PI);
+        while (diff < -Math.PI) diff += (float)(2 * Math.PI);
+        return diff;
     }
 
     private void generateArmsAndHammer() {
@@ -112,7 +116,7 @@ public class PlayerComponent extends Component {
         FXGL.getPhysicsWorld().addRevoluteJoint(
                 rightArm,
                 rightHand,
-                new Point2D(rightArm.getBoundingBoxComponent().getWidth(), rightArm.getBoundingBoxComponent().getHeight()/2),
+                new Point2D(rightArm.getWidth(), rightArm.getHeight()/2),
                 new Point2D(0, rightArm.getBoundingBoxComponent().getHeight()/2)
         );
 
@@ -130,7 +134,6 @@ public class PlayerComponent extends Component {
                 new Point2D(hammer.getBoundingBoxComponent().getWidth()/2, hammer.getBoundingBoxComponent().getHeight()),
                 new Point2D(rightHand.getBoundingBoxComponent().getWidth(), rightHand.getBoundingBoxComponent().getHeight()/2)
         );
-
 
         physics.getBody().setFixedRotation(true);
     }
