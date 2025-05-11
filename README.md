@@ -7,41 +7,63 @@
 
 
 
-##  Screenshot
+##  our pause menu
 
-![Screenshot del gioco](./screenshot.png)
+![Screenshot del gioco](.\src\main\resources\assets\levels\pauseMenu\pauseMenu.png)
 
 
+## 📑 Table of Contents
 
-## 🚀 Caratteristiche
+- [Introduction](#a-brief-description-of-the-game)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Controls](#how-to-play)
+- [Credits](#credits)
+
+
+## Features 
 
 - Smooth and responsive gameplay
 - Pixel art-style graphics
 - Progressively challenging levels
 - Save system
 - Compatible with keyboard and mouse
-- collectible items
+- Collectible items
 
 
 
-## 🛠️ Tecnologie Utilizzate
+## Technologies Used
 
-- Motore di gioco: Unity / Godot / Unreal / HTML5 + JS / Altro
-- Linguaggio: Java
-- Librerie: FXGL
+#### Technologies Used 🛠️
+
+- Language: Java
+- Libraries: FXGL
 
 
 
-## 🎮 Come Giocare
+## How to Play
 
-### Requisiti
+The game revolves around using the mouse to move a hammer, with which you can move and climb Mount Fuji.
 
-- Sistema operativo: Windows / macOS / Linux
+
+## Requirements
+
+- Operating System: Windows / macOS / Linux
 - RAM: minimo 10GB
 
 
-### Avvio
+### Start
 
 1. Scarica o clona questo repository:
    ```bash
-   git clone https://github.com/tuo-nome-utente/nome-del-gioco.git
+   git clone https://github.com/
+
+### Credits
+
+
+
+
+
+
+
