@@ -57,7 +57,7 @@ The game revolves around using the mouse to move a hammer, with which you can mo
 
 1. Scarica o clona questo repository:
    ```bash
-   git clone https://github.com/
+   https://github.com/ALUBER1/climb-mount-fuji
 
 ### Credits
 
