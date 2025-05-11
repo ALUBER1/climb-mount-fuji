@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="271" height="287" tilewidth="70" tileheight="70" infinite="0" nextlayerid="12" nextobjectid="362">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="271" height="287" tilewidth="70" tileheight="70" infinite="0" nextlayerid="12" nextobjectid="369">
  <tileset firstgid="1" name="tilesheet" tilewidth="70" tileheight="70" tilecount="1207" columns="71">
   <image source="Tilesheet.png" trans="ffffff" width="5000" height="1220"/>
  </tileset>
@@ -864,5 +864,12 @@
   <object id="357" type="platform" x="12740" y="1680" width="210" height="70"/>
   <object id="360" type="platform" x="12950" y="840" width="70" height="840"/>
   <object id="361" type="platform" x="3080" y="17220" width="140" height="140"/>
+  <object id="362" type="checkpoint" x="4200" y="16590" width="70" height="70"/>
+  <object id="363" type="checkpoint" x="5810" y="16450" width="70" height="70"/>
+  <object id="364" type="checkpoint" x="5390" y="14210" width="70" height="70"/>
+  <object id="365" type="checkpoint" x="8890" y="11760" width="70" height="70"/>
+  <object id="366" type="checkpoint" x="8890" y="11060" width="70" height="70"/>
+  <object id="367" type="checkpoint" x="11690" y="10920" width="70" height="70"/>
+  <object id="368" type="checkpoint" x="11620" y="6440" width="70" height="70"/>
  </objectgroup>
 </map>
