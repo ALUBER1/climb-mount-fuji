@@ -1,5 +1,5 @@
 package com.aluber.ClimbMountFuji;
 
 public enum EntityTypes {
-    PLAYER, PLATFORM, ARMS, HAMMER
+    PLAYER, PLATFORM, ARMS, HAMMER, COLLECTIBLE
 }

@@ -7,7 +7,7 @@ public class PlayerComponent extends Component {
 
     private double speedX = 0;
     private double speedY = 0;
-
+    private int collectibleCounter = 0;
     private Entity hammer;
     private Entity leftArm;
     private Entity rightArm;
@@ -25,4 +25,13 @@ public class PlayerComponent extends Component {
     private void generateArmsAndHammer() {
         //TODO
     }
+
+    public void addCollectibleCounter(){
+        collectibleCounter++;
+    }
+
+    public int getCollectibleCounter(){
+        return collectibleCounter;
+    }
+
 }
