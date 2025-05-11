@@ -47,6 +47,7 @@ public class Factory implements EntityFactory {
         return FXGL.entityBuilder(data)
                 .type(EntityTypes.COLLECTIBLE)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .collidable()
                 .with(physics)
                 .with(new CollectibleComponent())
                 .build();
