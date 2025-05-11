@@ -15,15 +15,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.MainApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
-    "git-widget-placeholder": "feature/ISSUE-5"
+    "git-widget-placeholder": "feature/ISSUE-10"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="MainApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
       <module name="fxgl-demo" />
-      <option name="PROGRAM_PARAMETERS" value="-Xmx12g -Xms8g" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmx20g -Xms10g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

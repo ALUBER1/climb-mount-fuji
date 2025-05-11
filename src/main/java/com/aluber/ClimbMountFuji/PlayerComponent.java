@@ -1,6 +1,12 @@
 package com.aluber.ClimbMountFuji;
 
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.entity.*;
+import com.almasb.fxgl.physics.BoundingShape;
+import com.almasb.fxgl.physics.HitBox;
+import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
@@ -33,6 +39,7 @@ public class PlayerComponent extends Component {
 
     @Override
     public void onUpdate(double tpf) {
+
 
         double ratio = 10;
 

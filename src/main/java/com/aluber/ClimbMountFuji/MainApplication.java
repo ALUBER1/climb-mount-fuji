@@ -32,6 +32,8 @@ public class MainApplication extends GameApplication {
         launch(args);
     }
 
+
+
     @Override
     protected void initUI() {
         FXGL.getGameScene().setCursor(Cursor.DEFAULT);
@@ -42,7 +44,13 @@ public class MainApplication extends GameApplication {
         FXGL.getGameWorld().addEntityFactory(new Factory());
         FXGL.setLevelFromMap("level/Project.tmx");
         Viewport view = FXGL.getGameScene().getViewport();
-        player = spawn("player", 1750,18800);
+        double x=1750,y=18800;
+        Entity oldPlayer= CheckpointHandler.onRestart();
+        if(oldPlayer != null){
+            x = oldPlayer.getX();
+            y= oldPlayer.getY();
+        }
+        player = spawn("player", x,y);
         view.bindToEntity(player, (getAppWidth()/2) - (player.getWidth()/2), (getAppHeight()/2) - (player.getHeight()/2));
         FXGL.getGameScene().getViewport().setLazy(true);
 
@@ -57,6 +65,7 @@ public class MainApplication extends GameApplication {
                 collectible.getComponent(CollectibleComponent.class).collect(player);
             }
         });
+        FXGL.getPhysicsWorld().addCollisionHandler(new CheckpointHandler());
 
     }
 }
