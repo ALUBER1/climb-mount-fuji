@@ -4,73 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43ddec76-b2b6-4f5a-b7e9-28837afa9394" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/EntityType.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2vtvSVXQxBoqkJ8Qv9qzPB9yrMT" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "Application.Run.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/ISSUE-4",
-    "kotlin-language-version-configured": "true"
+    "Application.Unnamed.executor": "Run",
+    "git-widget-placeholder": "feature/ISSUE-5"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Run" type="Application" factoryName="Application">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
       <module name="fxgl-demo" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmx12g -Xms8g" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="43ddec76-b2b6-4f5a-b7e9-28837afa9394" name="Changes" comment="" />
-      <created>1744977478920</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1744977478920</updated>
-    </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
