@@ -35,7 +35,6 @@ public class PlayerComponent extends Component {
     public void onUpdate(double tpf) {
 
         double ratio = 10;
-        double max = 10;
 
         Point2D pos = FXGL.getInput().getMousePositionWorld();
         double dx = pos.getX() - leftArm.getX();
@@ -86,7 +85,7 @@ public class PlayerComponent extends Component {
     }
 
     private void generateArmsAndHammer() {
-        player = getGameWorld().getSingleton(EntityType.PLAYER);
+        player = getGameWorld().getSingleton(EntityTypes.PLAYER);
 
         leftArm = spawn("arm",player.getX(), player.getY());
         FXGL.getPhysicsWorld().addRevoluteJoint(

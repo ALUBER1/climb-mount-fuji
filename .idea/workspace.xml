@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e08ce612-4310-4487-baaf-107370a1135d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/EntityType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aluber/ClimbMountFuji/PlayerComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/levels/level/Project.tmx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +20,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Unnamed.executor": "Run",
     "git-widget-placeholder": "feature/ISSUE-5"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aluber.ClimbMountFuji.MainApplication" />
+      <module name="fxgl-demo" />
+      <option name="PROGRAM_PARAMETERS" value="-Xmx12g -Xms8g" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <servers />
   </component>

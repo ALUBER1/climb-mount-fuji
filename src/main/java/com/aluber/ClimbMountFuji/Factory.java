@@ -26,7 +26,7 @@ public class Factory implements EntityFactory {
         physics.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
-                .type(EntityType.PLAYER)
+                .type(EntityTypes.PLAYER)
                 .viewWithBBox("player.png")
                 .with(physics)
                 .with(new PlayerComponent())
@@ -46,7 +46,7 @@ public class Factory implements EntityFactory {
         physics.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
-                .type(EntityType.PLATFORM)
+                .type(EntityTypes.PLATFORM)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
                 .collidable()
                 .with(physics)
@@ -65,7 +65,7 @@ public class Factory implements EntityFactory {
         physicsComponent.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
-                .type(EntityType.ARMS)
+                .type(EntityTypes.ARMS)
                 .view("arm.png")
                 .bbox(new HitBox(BoundingShape.box(38, 17)))
                 .with(physicsComponent)
@@ -84,7 +84,7 @@ public class Factory implements EntityFactory {
         physicsComponent.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
-                .type(EntityType.ARMS)
+                .type(EntityTypes.ARMS)
                 .view("hand.png")
                 .bbox(new HitBox(BoundingShape.box(38, 17)))
                 .with(physicsComponent)
@@ -103,7 +103,7 @@ public class Factory implements EntityFactory {
         physicsComponent.setFixtureDef(def);
 
         return FXGL.entityBuilder(data)
-                .type(EntityType.HAMMER)
+                .type(EntityTypes.HAMMER)
                 .view("hammer.png")
                 .bbox(new HitBox(BoundingShape.box(30, 120)))
                 .with(physicsComponent)
