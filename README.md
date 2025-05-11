@@ -51,7 +51,7 @@ The game revolves around using the mouse to move a hammer, with which you can mo
 
 ## Start
 
-1. Download the precompiled binary in the release tab onn GitHub:
+1. Download the precompiled binary in the release tab on GitHub:
    ```bash
    https://github.com/ALUBER1/climb-mount-fuji
 
