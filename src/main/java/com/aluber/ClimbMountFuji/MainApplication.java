@@ -5,10 +5,8 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.app.scene.Viewport;
-import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
-import com.almasb.fxgl.input.UserAction;
 import javafx.scene.Cursor;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -28,11 +26,6 @@ public class MainApplication extends GameApplication {
         gameSettings.setFullScreenAllowed(true);
         gameSettings.setFullScreenFromStart(true);
 
-    }
-
-    @Override
-    protected void initPhysics() {
-        FXGL.getPhysicsWorld().setGravity(0,3000);
     }
 
     public static void main(String[] args) {
@@ -57,6 +50,7 @@ public class MainApplication extends GameApplication {
 
     @Override
     protected void initPhysics() {
+        FXGL.getPhysicsWorld().setGravity(0,3000);
         FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(EntityTypes.PLAYER, EntityTypes.COLLECTIBLE) {
             @Override
             protected void onCollisionBegin(Entity player, Entity collectible) {

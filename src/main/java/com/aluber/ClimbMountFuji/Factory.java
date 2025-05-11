@@ -22,7 +22,6 @@ public class Factory implements EntityFactory {
         FixtureDef def = new FixtureDef();
         def.getFilter().categoryBits = 0x0004;
         def.getFilter().maskBits = 0x0002;
-        //def.setDensity(2f);
 
         physics.setFixtureDef(def);
 
@@ -108,23 +107,6 @@ public class Factory implements EntityFactory {
                 .view("hammer.png")
                 .bbox(new HitBox(BoundingShape.box(30, 120)))
                 .with(physicsComponent)
-                .build();
-    }
-
-    @Spawns("platform")
-    public Entity newPlatform(SpawnData data) {
-        PhysicsComponent physics = new PhysicsComponent();
-        physics.setBodyType(BodyType.STATIC);
-        FixtureDef def = new FixtureDef();
-        def.getFilter().categoryBits = 0x0002;
-        def.getFilter().maskBits = 0xFFFF;
-        def.setFriction(1.0f);
-
-        return FXGL.entityBuilder(data)
-                .type(EntityTypes.PLATFORM)
-                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
-                .collidable()
-                .with(physics)
                 .build();
     }
 
