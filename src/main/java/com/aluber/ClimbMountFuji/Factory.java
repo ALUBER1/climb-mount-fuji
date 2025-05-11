@@ -38,4 +38,17 @@ public class Factory implements EntityFactory {
                 .with(physics)
                 .build();
     }
+
+    @Spawns("collectible")
+    public Entity newCollectible(SpawnData data) {
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityTypes.COLLECTIBLE)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .with(physics)
+                .with(new CollectibleComponent())
+                .build();
+    }
 }
