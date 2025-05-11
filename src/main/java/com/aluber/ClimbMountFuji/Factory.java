@@ -6,6 +6,7 @@ import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 
 public class Factory implements EntityFactory {
 
@@ -17,6 +18,23 @@ public class Factory implements EntityFactory {
         return FXGL.entityBuilder(data)
                 .type(EntityTypes.PLAYER)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .with(physics)
+                .build();
+    }
+
+    @Spawns("platform")
+    public Entity newPlatform(SpawnData data) {
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+        FixtureDef def = new FixtureDef();
+        def.getFilter().categoryBits = 0x0002;
+        def.getFilter().maskBits = 0xFFFF;
+        def.setFriction(1.0f);
+
+        return FXGL.entityBuilder(data)
+                .type(EntityTypes.PLATFORM)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"), data.<Integer>get("height"))))
+                .collidable()
                 .with(physics)
                 .build();
     }
