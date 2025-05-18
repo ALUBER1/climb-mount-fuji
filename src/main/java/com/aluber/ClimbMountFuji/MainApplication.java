@@ -25,14 +25,12 @@ public class MainApplication extends GameApplication {
         gameSettings.setIntroEnabled(false);
         gameSettings.setFullScreenAllowed(true);
         gameSettings.setFullScreenFromStart(true);
-
+        gameSettings.setSceneFactory(new SceneFactory());
     }
 
     public static void main(String[] args) {
         launch(args);
     }
-
-
 
     @Override
     protected void initUI() {
